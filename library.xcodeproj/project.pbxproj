@@ -13,6 +13,7 @@
 		4480D8DE2AED698600F9032D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4480D8DD2AED698600F9032D /* Preview Assets.xcassets */; };
 		4480D8E02AED698600F9032D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480D8DF2AED698600F9032D /* Persistence.swift */; };
 		4480D8E32AED698600F9032D /* library.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4480D8E12AED698600F9032D /* library.xcdatamodeld */; };
+		4480D8EA2AED756D00F9032D /* BookCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480D8E92AED756D00F9032D /* BookCreatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4480D8DD2AED698600F9032D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4480D8DF2AED698600F9032D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4480D8E22AED698600F9032D /* library.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = library.xcdatamodel; sourceTree = "<group>"; };
+		4480D8E92AED756D00F9032D /* BookCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCreatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				4480D8DF2AED698600F9032D /* Persistence.swift */,
 				4480D8E12AED698600F9032D /* library.xcdatamodeld */,
 				4480D8DC2AED698600F9032D /* Preview Content */,
+				4480D8E92AED756D00F9032D /* BookCreatorView.swift */,
 			);
 			path = library;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				4480D8E02AED698600F9032D /* Persistence.swift in Sources */,
 				4480D8E32AED698600F9032D /* library.xcdatamodeld in Sources */,
+				4480D8EA2AED756D00F9032D /* BookCreatorView.swift in Sources */,
 				4480D8D92AED698400F9032D /* ContentView.swift in Sources */,
 				4480D8D72AED698400F9032D /* libraryApp.swift in Sources */,
 			);
