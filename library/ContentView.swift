@@ -10,76 +10,45 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    
+    @State private var isEditing = false
 
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Book.title, ascending: true)],
         animation: .default)
-    //private var items: FetchedResults<Item>
     private var books: FetchedResults<Book>
-
-
+    
+    
     var body: some View {
         NavigationView {
             List {
                 ForEach(books) { item in
-                    NavigationLink {
-                        Text("Item at \(item.title!)")
-                    } label: {
-                        Text(item.title!)
+                    NavigationLink(destination: BookVisualizer(book: item)){
+                        Text(item.title ?? "a")
+                        Text("📕")
+                    } .onAppear {
+                        print("Valor de item: \(item)")
                     }
                 }
-              //  .onDelete(perform: deleteItems)
+                //  .onDelete(perform: deleteItems)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addItem) {
+                    NavigationLink(destination: BookCreatorView()) {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
             }
             Text("Select an item")
         }
+        
     }
-
-    private func addItem() {
-        withAnimation {
-           // let newItem = Item(context: viewContext)
-            //newItem.timestamp = Date()
-            
-            let newBook = Book(context: viewContext)
-            newBook.title = "esto es test"
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-/*
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
- 
- */
 }
+
 
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()

@@ -9,19 +9,23 @@ import SwiftUI
 
 struct BookCreatorView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    
+    @Environment(\.presentationMode) var presentationMode
+
     @State private var bookTitle = ""
+    @State private var bookAuthor = ""
+    
     
     
     var body: some View {
         NavigationView {
-            
             
             Form {
                 Section {
                     TextField("Título del libro", text: $bookTitle)
                 }
                 Section {
-                    TextField("Autor", text: $bookTitle)
+                    TextField("Autor", text: $bookAuthor)
                 }
             }
             .navigationTitle("Agregar Libro")
@@ -35,9 +39,11 @@ struct BookCreatorView: View {
                 trailing: Button("Guardar") {
                     if !bookTitle.isEmpty {
                         let newBook = Book(context: viewContext)
-                        newBook.title = bookTitle
+                        newBook.author = bookAuthor
                         do {
                             try viewContext.save()
+                            presentationMode.wrappedValue.dismiss() // Volver a la vista anterior
+
                         } catch {
                             // Manejar errores de guardado
                             print("Error al guardar:       \(error)")
